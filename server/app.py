@@ -1,10 +1,15 @@
-import ai21
+import os
+
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+
+import ai21
 from ai21 import AI21Client
 from ai21.models.chat import UserMessage
-import os
+
+load_dotenv()
 
 client = AI21Client(api_key=os.getenv("AI21_API_KEY"))
 
