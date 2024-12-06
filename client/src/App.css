@@ -117,6 +117,7 @@
 }
 
 .app__container--body {
+  padding: 0 1.5rem;
   margin-top: 30px;
 }
 .card {
@@ -125,10 +126,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   max-width: 600px;
   padding: 35px;
-
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.45);
@@ -141,7 +140,6 @@
   padding: 10px 15px;
 }
 
-/* HTML: <div class="loader"></div> */
 .loader {
   margin: 0 auto;
   width: 50px;
@@ -159,5 +157,38 @@
 @keyframes l3 {
   to {
     transform: rotate(1turn);
+  }
+}
+
+@media (max-width: 963px) {
+  .app__container--header .search__bar {
+    width: 400px;
+  }
+}
+@media (max-width: 840px) {
+  .logo {
+    display: none;
+  }
+}
+@media (max-width: 725px) {
+  .profile p {
+    display: none;
+  }
+  .app__container--header {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .app__container--header .search__bar {
+    width: 100% !important;
+  }
+  .card {
+    padding: 15px;
+  }
+}
+@media (max-width: 450px) {
+  .profile {
+    display: none;
   }
 }
