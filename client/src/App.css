@@ -1,0 +1,139 @@
+.app__container--header {
+  display: flex;
+  height: 94px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  /* background-color: red; */
+}
+
+.app__container--header .search__bar {
+  display: flex;
+  background-color: #ffffff;
+  height: 48px;
+  width: 500px;
+  border-radius: 40px;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.search--container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search--container button {
+  border: none;
+  background-color: #181414;
+  box-shadow: 0px 4px 4px 0px #0000001f;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.search--container button:hover {
+  background-color: #000;
+  transform: scale(1.2, 1.2);
+}
+.search {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.search__dropdown {
+  position: absolute;
+  z-index: 99;
+  height: 250px;
+  width: 87%;
+  left: 20px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background-color: #ffffff;
+  overflow: scroll;
+}
+
+.search__dropdown ul {
+  padding: 10px 10px;
+}
+.search__dropdown li {
+  list-style: none;
+  padding: 5px 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.4s;
+}
+
+.search__dropdown li:hover {
+  background-color: #5c6368;
+  color: #ffffff;
+}
+
+.search__bar > input {
+  outline: none;
+  background-color: none;
+  border: none;
+  font-size: 18px;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.search__bar > input::placeholder {
+  font-size: 16px;
+}
+
+.profile {
+  background-color: #181414;
+  box-shadow: 0px 4px 4px 0px #0000001f;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 40px;
+}
+.profile .img--container {
+  width: 36px;
+  height: 36px;
+}
+.profile .img--container > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile > p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.875rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.app__container--body {
+  margin-top: 30px;
+}
+.card {
+  min-height: 200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  max-width: 800px;
+  height: 300px;
+  padding: 35px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(15px);
+}

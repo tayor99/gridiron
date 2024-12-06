@@ -48,4 +48,4 @@ async def generate_playlist(request: GenreRequest):
         top_p=1.0 
     )
 
-    return { "response": response }
+    return { "response": response.choices[0] }
