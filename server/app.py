@@ -52,17 +52,30 @@ async def generate_playlist(request: GenreRequest):
         top_p=1.0 
     )
 
+
+
     raw_data = response.choices[0].message.content
 
+
+  
     lines = raw_data.split("\n")  # Split the text into lines
+
+
     songs = []
-    
     for line in lines:
-        if "**" in line and "by" in line:
+      
+        if "**" in line and ("by" in line or "-" in line):
             # Extract the title using regex or string manipulation
             title = line.split("**")[1].replace('"', "").strip()
             # Extract the artist by splitting on 'by'
-            artist = line.split("by")[1].strip()
+            if "by" in line:
+                artist = line.split("by")[1].strip()
+            elif "-" in line:
+                artist = line.split("-")[1].strip()
+            else:
+                continue 
+
+            
             songs.append({
                 "title": title,
                 "artist": artist,
