@@ -10,19 +10,23 @@ import axios from "axios";
 function App() {
   const [showDropDown, setShowDropDown] = useState(false);
   const [searchGenre, setSearchGenre] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState([]);
   const genreFilter = musicGenres.filter((genre) => {
     return genre.toLowerCase().includes(searchGenre.toLowerCase());
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
       const res = await axios.post("https://gridiron.onrender.com/playlist", {
         genre: searchGenre,
       });
-      console.log(res);
+      setLoading(false);
+      setResult(res?.data);
     } catch (e) {
+      setLoading(false);
       console.log(e);
     }
   };
@@ -56,9 +60,10 @@ function App() {
                   {genreFilter.map((list, index) => (
                     <li
                       key={index}
-                      onClick={() => {
+                      onClick={(e) => {
                         setSearchGenre(list);
                         setShowDropDown(false);
+                        handleSubmit(e);
                       }}
                     >
                       {list}
@@ -80,13 +85,27 @@ function App() {
         </div>
       </div>
       <div className="app__container--body">
-        <div className="card">
-          <p>
-            A glass-like card to demonstrate the{" "}
-            <strong>Glassmorphism UI design</strong> trend.
-          </p>
-          <p class="card-footer">Created by Rahul C.</p>
-        </div>
+        {!searchGenre || result.length < 1 ? (
+          <></>
+        ) : (
+          <div className="card">
+            {loading ? (
+              <span className="loader"></span>
+            ) : (
+              <>
+                {" "}
+                <div className="card__list">
+                  {result.map((res) => (
+                    <div className="card__list--container">
+                      <p>{res?.title}</p>
+                      <h4>{res?.artist}</h4>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
