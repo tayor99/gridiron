@@ -32,6 +32,10 @@ class GenreRequest(BaseModel):
     genre: str
 
 
+@app.get("/")
+def hello_world():
+    return "Api is live"
+
 @app.post("/playlist")
 async def generate_playlist(request: GenreRequest):
     genre = request.genre.capitalize()
@@ -48,4 +52,23 @@ async def generate_playlist(request: GenreRequest):
         top_p=1.0 
     )
 
-    return { "response": response.choices[0] }
+    raw_data = response.choices[0].message.content
+
+    lines = raw_data.split("\n")  # Split the text into lines
+    songs = []
+    
+    for line in lines:
+        if "**" in line and "by" in line:
+            # Extract the title using regex or string manipulation
+            title = line.split("**")[1].replace('"', "").strip()
+            # Extract the artist by splitting on 'by'
+            artist = line.split("by")[1].strip()
+            songs.append({
+                "title": title,
+                "artist": artist,
+                "genre": "String"
+            })
+
+    return songs
+
+ 
