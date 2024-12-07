@@ -1,4 +1,35 @@
+# Adenusi Adetayo
+
+## Technical Assessment: AI Playlist Generator Front end
+
+The **AI Playlist Generator ** is a Single based application that integrates with the [backend](https://gridiron.onrender.com/) API to generate playlists for a specified genre. Each playlist includes song titles and their respective artists.
+
+---
+
+## Features
+
+- Generate playlists for a specified genre.
+
+---
+
+## Deployment
+
+- **Live Frontend**: [https://gridiron-bay.vercel.app/](https://gridiron-bay.vercel.app/)
+
+---
+
+## Prerequisites
+
+- React
+- Node
+
 # Getting Started with Create React App
+
+```bash
+  git clone <repository-url>
+  cd client
+  yarn install
+```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
